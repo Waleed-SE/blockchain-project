@@ -10,8 +10,8 @@ pub async fn create_pool() -> Result<DbPool, Box<dyn std::error::Error>> {
     let mut cfg = Config::new();
     cfg.url = Some(database_url);
     
-    // Limit pool size for Supabase free tier (max 3 connections in session mode)
-    cfg.pool = Some(deadpool_postgres::PoolConfig::new(3));
+    // Limit pool size for Supabase free tier (max 10 connections in session mode)
+    cfg.pool = Some(deadpool_postgres::PoolConfig::new(10));
     
     cfg.manager = Some(ManagerConfig {
         recycling_method: RecyclingMethod::Fast,
