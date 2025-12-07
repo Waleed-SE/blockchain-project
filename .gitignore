@@ -1,6 +1,6 @@
 # Rust
 /target
-Cargo.lock
+# Cargo.lock - KEEP THIS for production builds!
 **/*.rs.bk
 
 # Environment
