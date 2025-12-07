@@ -1,0 +1,70 @@
+[package]
+name = "blockchain-wallet-backend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Web framework
+actix-web = "4.4"
+actix-cors = "0.7"
+actix-rt = "2.9"
+
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Cryptography
+rsa = "0.9"
+sha2 = "0.10"
+rand = "0.8"
+hex = "0.4"
+base64 = "0.21"
+aes-gcm = "0.10"
+pkcs8 = { version = "0.10", features = ["pem"] }
+
+# Database
+tokio-postgres = { version = "0.7", features = ["with-serde_json-1", "with-chrono-0_4", "with-uuid-1"] }
+deadpool-postgres = "0.12"
+
+# Environment variables
+dotenv = "0.15"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# UUID
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# Async utilities
+futures-util = "0.3"
+
+# JWT
+jsonwebtoken = "9.2"
+
+# Password hashing
+argon2 = "0.5"
+
+# Logging
+env_logger = "0.11"
+log = "0.4"
+
+# Multi-threading
+num_cpus = "1.16"
+
+# HTTP client
+reqwest = { version = "0.11", features = ["json"] }
+
+# Email
+lettre = { version = "0.11", default-features = false, features = ["tokio1-rustls-tls", "smtp-transport", "builder", "hostname"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

@@ -1,0 +1,17 @@
+# Render Configuration
+# This file tells Render.com how to build and run the Rust backend
+
+# Build command
+build:
+  command: cargo build --release
+
+# Start command  
+start:
+  command: ./target/release/blockchain-wallet-backend
+
+# Environment
+env:
+  - key: RUST_LOG
+    value: info
+  - key: PORT
+    value: 8080
